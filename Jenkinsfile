@@ -1,5 +1,7 @@
-node {
- 
+pipeline {
+    agent any 
+stages { 
+     
   def mvnHome
    
 stage('Preparation') { 
@@ -47,5 +49,6 @@ stage('Preparation') {
             waitForQualityGate abortPipeline: true
         }
     }
+}
 }
 }

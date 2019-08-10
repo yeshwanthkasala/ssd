@@ -1,10 +1,12 @@
 pipeline {
     agent any 
+    tools { 
+        maven 'Maven' 
+        jdk 'jdk8' 
+    }
 stages { 
      
-  def mvnHome
-   
-stage('Preparation') { 
+ stage('Preparation') { 
 // for display purposes
 
       // Get some code from a GitHub repository
@@ -17,7 +19,6 @@ stage('Preparation') {
  
      // **       in the global configuration.   
         
-      mvnHome = tool 'Maven'
    }
 
    stage('Build') {

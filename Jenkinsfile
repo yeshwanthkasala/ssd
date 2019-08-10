@@ -54,5 +54,10 @@ stages {
         }
     }
 }
+     stage('Artifact upload') {
+      steps {
+     nexusArtifactUploader artifacts: [[artifactId: '\'nexus-artifact-uploader\'', classifier: '\'debug\'', file: 'hello-world-servlet-example-1.0-SNAPSHOT.war', type: 'war']], credentialsId: 'nexus', groupId: 'com.geekcap.vmturbo', nexusUrl: '18.220.30.249:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'hello-world-servlet-example', version: '1.5'
+      }
+ }
 }
 }

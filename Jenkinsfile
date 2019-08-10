@@ -7,6 +7,7 @@ pipeline {
 stages { 
      
  stage('Preparation') { 
+     steps {
 // for display purposes
 
       // Get some code from a GitHub repository
@@ -18,18 +19,19 @@ stages {
  // ** NOTE: This 'M3' Maven tool must be configured
  
      // **       in the global configuration.   
-        
+     }
    }
 
    stage('Build') {
-      // Run the maven build
+       steps {
+       // Run the maven build
 
       //if (isUnix()) {
          sh 'mvn -Dmaven.test.failure.ignore=true install'
       //} 
       //else {
       //   bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
-      
+       }
 //}
    }
  

@@ -32,7 +32,7 @@ stage('Preparation') {
  
   stage('Results') {
       junit '**/target/surefire-reports/TEST-*.xml'
-      archive 'target/*.war'
+      archiveArtifacts 'target/*.war'
   
  }
  stage('Sonarqube') {

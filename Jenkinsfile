@@ -56,7 +56,7 @@ stages {
 }
      stage('Artifact upload') {
       steps {
-     nexusArtifactUploader artifacts: [[artifactId: '\'nexus-artifact-uploader\'', classifier: '\'debug\'', file: 'helloworld.war', type: 'war']], credentialsId: 'nexus', groupId: 'com.geekcap.vmturbo', nexusUrl: '18.220.30.249:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'hello-world-servlet-example', version: '1.5'
+     nexusArtifactUploader artifacts: [[artifactId: '\'nexus-artifact-uploader\'', classifier: '\'debug\'', file: '/pipeline/target/helloworld.war', type: 'war']], credentialsId: 'nexus', groupId: 'com.geekcap.vmturbo', nexusUrl: '18.220.30.249:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'hello-world-servlet-example', version: '1.5'
       }
  }
 }

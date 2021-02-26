@@ -19,4 +19,4 @@ webhook test
 08/10/2020
 01/12/2020
 02/25/2021 --> Thursday
-02/26/2021 --> Friday
+02/26/2021 --> Friday is last day for the week

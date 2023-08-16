@@ -1,6 +1,15 @@
-	   echo "Ok Warning" >health_state
-	   echo ${health_state}
-     health_check=$(echo "${health_state}" | grep -v Ok | grep -v Warning)
+# ------------------------------------------------------------------------
+#  _eb_health_check  - Function to verify the health state of given Beanstalk environment
+# ------------------------------------------------------------------------
+_eb_health_check()
+{
+    
+    #getting the health check status from elastic beanstalk
+    echo "Ok Warning" >health_state
+    health_check=$(echo "${health_state}" | grep -v Ok | grep -v Warning)
+
+ 
+
     if [[ -z "${health_check}" ]] ; then
        echo "-----------------------------------------------------------"
        echo "Health Check status of individual nodes -1"
@@ -13,9 +22,12 @@
        echo "#############################################################"
        
     else
-       sleep 20
-       health_state=$(aws elasticbeanstalk describe-instances-health --environment-name $env_name --region ${region} --attribute-names HealthStatus --query InstanceHealthList[] --output text)
+       sleep 200
+       echo "Ok Warning" >health_state
        health_check=$(echo "${health_state}" | grep -v Ok | grep -v Warning)
+
+ 
+
        if [[ -z "${health_check}" ]] 
        then
            echo "-----------------------------------------------------------"
@@ -41,3 +53,5 @@
        fi
     fi
 }
+
+ 

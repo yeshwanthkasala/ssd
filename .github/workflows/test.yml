@@ -1,15 +1,4 @@
 on:
-  workflow_dispatch:
-    inputs:
-      ENV_NAME:
-        required: false
-        description: evn name of the application
-      REGION:
-        required: false
-        description: Region where instances in available
-      CLIENT:
-        required: false
-        description: Client Name as in aws console  
 jobs:
   scale_down_app:
     runs-on: ubuntu-latest

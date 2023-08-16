@@ -1,1 +1,32 @@
-#. ~/.bash_profile
+on:
+  workflow_dispatch:
+    inputs:
+      ENV_NAME:
+        required: false
+        description: evn name of the application
+      REGION:
+        required: false
+        description: Region where instances in available
+      CLIENT:
+        required: false
+        description: Client Name as in aws console  
+jobs:
+  scale_down_app:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+    - name: Install EB CLI
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3-pip
+        pip3 install --user awsebcli
+        echo 'export PATH="$HOME/.local/bin:$PATH"' >> $GITHUB_ENV
+    - name: Display PATH
+      run: echo $PATH
+    - name: test
+      run: |
+          cd docker
+          chmod 755 -R .
+          ./docker/test.sh

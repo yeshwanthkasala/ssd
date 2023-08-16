@@ -1,4 +1,3 @@
-on:
 jobs:
   scale_down_app:
     runs-on: ubuntu-latest

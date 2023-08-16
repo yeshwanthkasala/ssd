@@ -11,9 +11,9 @@
        echo "############################################################"
        echo "Deployment is completed to $env_name, please browse the URl"
        echo "#############################################################"
-       sh ${WDIR}/script_to_get_product_version_from_log_v3locitydev.sh ${client} ${region} ${env_name}
+       
     else
-       sleep 200
+       sleep 20
        health_state=$(aws elasticbeanstalk describe-instances-health --environment-name $env_name --region ${region} --attribute-names HealthStatus --query InstanceHealthList[] --output text)
        health_check=$(echo "${health_state}" | grep -v Ok | grep -v Warning)
        if [[ -z "${health_check}" ]] 

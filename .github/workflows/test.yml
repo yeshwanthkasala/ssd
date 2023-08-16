@@ -29,4 +29,4 @@ jobs:
       run: |
           cd docker
           chmod 755 -R .
-          ./docker/test.sh
+          ./test.sh
